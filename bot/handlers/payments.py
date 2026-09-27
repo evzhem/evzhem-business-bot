@@ -9,6 +9,16 @@ logger = logging.getLogger(__name__)
 router = Router()
 
 
+async def safe_answer(call: CallbackQuery, text: str = None, show_alert: bool = False):
+    try:
+        if text:
+            await call.answer(text=text, show_alert=show_alert)
+        else:
+            await call.answer()
+    except Exception:
+        pass
+
+
 @router.callback_query(F.data.startswith("buy_prem_"))
 async def cb_buy_premium(call: CallbackQuery, bot: Bot):
     plan = call.data.replace("buy_prem_", "")
@@ -40,20 +50,26 @@ async def cb_buy_premium(call: CallbackQuery, bot: Bot):
             currency="XTR",
             prices=[LabeledPrice(label=title, amount=price)]
         )
-        await call.answer()
+        await safe_answer(call)
     except Exception as e:
         logger.error(f"Failed to send stars invoice: {e}")
-        await call.answer("💎 В тестовом режиме подписка активируется мгновенно!", show_alert=True)
+        await safe_answer(call, "💎 В тестовом режиме подписка активируется мгновенно!", show_alert=True)
         days = 30 if plan == "1m" else (90 if plan == "3m" else 3650)
         async with AsyncSessionLocal() as session:
             repo = Repository(session)
             await repo.grant_premium(user_id, days)
-        await call.message.answer(f"🎉 <b>Поздравляем! Вам успешно выдан VIP Премиум доступ ({title})!</b> 👑")
+        try:
+            await call.message.answer(f"🎉 <b>Поздравляем! Вам успешно выдан VIP Премиум доступ ({title})!</b> 👑")
+        except Exception:
+            pass
 
 
 @router.pre_checkout_query()
 async def process_pre_checkout(pre_checkout: PreCheckoutQuery, bot: Bot):
-    await bot.answer_pre_checkout_query(pre_checkout.id, ok=True)
+    try:
+        await bot.answer_pre_checkout_query(pre_checkout.id, ok=True)
+    except Exception:
+        pass
 
 
 @router.message(F.successful_payment)
@@ -70,7 +86,4 @@ async def process_successful_payment(message: Message):
         repo = Repository(session)
         await repo.grant_premium(user_id, days)
 
-    await message.answer(
-        f"🎉 <b>Оплата Telegram Stars прошла успешно!</b>\n"
-        f"👑 Премиум статус активирован на {days} дней. Все VIP функции разблокированы!"
-    )
+    await message.answer(f"⭐ <b>Оплата прошла успешно!</b> VIP подписка на {days} дней активирована!")
