@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import os
 import uvicorn
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
@@ -90,10 +91,11 @@ webapp_app.router.lifespan_context = lifespan
 
 
 async def main():
+    port = int(os.environ.get("PORT", 8000))
     config = uvicorn.Config(
         app=webapp_app,
         host="0.0.0.0",
-        port=8000,
+        port=port,
         log_level="info",
         loop="asyncio"
     )
