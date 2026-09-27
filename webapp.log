@@ -1,0 +1,79 @@
+/usr/local/bin/python3: No module named uvicorn
+/usr/local/bin/python3: No module named uvicorn
+/usr/local/bin/python3: No module named uvicorn
+/usr/local/bin/python3: No module named uvicorn
+/usr/local/bin/python3: No module named uvicorn
+/usr/local/bin/python3: No module named uvicorn
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/local/lib/python3.13/site-packages/uvicorn/__main__.py", line 4, in <module>
+    uvicorn.main()
+    ~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/click/core.py", line 1569, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/click/core.py", line 1490, in main
+    rv = self.invoke(ctx)
+  File "/usr/local/lib/python3.13/site-packages/click/core.py", line 1353, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/click/core.py", line 907, in invoke
+    return callback(*args, **kwargs)
+  File "/usr/local/lib/python3.13/site-packages/uvicorn/main.py", line 448, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<49 lines>...
+        reset_contextvars=reset_contextvars,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/uvicorn/main.py", line 620, in run
+    config.load_app()
+    ~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/uvicorn/config.py", line 434, in load_app
+    return import_from_string(self.app)
+  File "/usr/local/lib/python3.13/site-packages/uvicorn/importer.py", line 22, in import_from_string
+    raise exc from None
+  File "/usr/local/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/local/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/user/telegram_business_bot/webapp/backend/app.py", line 5, in <module>
+    from fastapi import FastAPI, Depends, HTTPException, Query
+ModuleNotFoundError: No module named 'fastapi'
+INFO:     Started server process [1501]
+INFO:     Waiting for application startup.
+INFO:webapp.backend.app:Starting resilient Telegram Bot polling loop in WebApp background...
+INFO:webapp.backend.app:Bot Polling ACTIVE for @evzhem_business_bot
+INFO:aiogram.dispatcher:Start polling
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:aiogram.dispatcher:Run polling for bot @evzhem_business_bot id=8979172515 - 'evzhem | Business Automation'
+INFO:aiogram.event:Update id=896885413 is handled. Duration 522 ms by bot id=8979172515
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8979172515)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+WARNING:aiogram.dispatcher:Sleep for 1.278713 seconds and try again... (tryings = 1, bot id = 8979172515)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+WARNING:aiogram.dispatcher:Sleep for 1.463704 seconds and try again... (tryings = 2, bot id = 8979172515)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:aiogram.dispatcher:Polling stopped
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+WARNING:aiogram.dispatcher:Sleep for 2.094006 seconds and try again... (tryings = 3, bot id = 8979172515)
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1501]
+INFO:     Started server process [1533]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>evzhem_business_bot Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Navigation Header -->
+    <header class="header">
+      <div class="user-info">
+        <div class="avatar" id="userAvatar">E</div>
+        <div class="user-details">
+          <div class="user-name-row">
+            <span class="user-name" id="userName">evzhem</span>
+            <span class="badge badge-vip" id="userBadge">👑 VIP</span>
+          </div>
+          <div class="user-status-row">
+            <span class="status-dot connected" id="connDot"></span>
+            <span class="status-text" id="connText">Telegram Business: 5/5 подключено</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn-icon" id="btnHelp" title="Помощь">❓</button>
+    </header>
+
+    <!-- Navigation Tabs Bar -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="dashboard">📱 Дашборд</button>
+      <button class="tab-btn" data-tab="catalog">📚 Все 35+ Функций</button>
+      <button class="tab-btn" data-tab="animations">💫 Анимации</button>
+      <button class="tab-btn" data-tab="crm">💼 CRM & Досье</button>
+      <button class="tab-btn" data-tab="autoresponder">🤖 Автоответчик</button>
+      <button class="tab-btn" data-tab="moderation">🔇 Модерация</button>
+      <button class="tab-btn" data-tab="stats">📊 Статистика</button>
+      <button class="tab-btn" data-tab="achievements">🏆 Ачивки</button>
+      <button class="tab-btn highlight" data-tab="premium">⭐ Премиум</button>
+    </nav>
+
+    <!-- MAIN CONTENT SECTIONS -->
+    <main class="content-area">
+
+      <!-- 1. TAB: DASHBOARD -->
+      <section id="tab-dashboard" class="tab-pane active">
+        <!-- Quick Stats Widget -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">📤</div>
+            <div class="stat-value" id="statOutgoing">0</div>
+            <div class="stat-label">Исходящих</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📥</div>
+            <div class="stat-value" id="statIncoming">0</div>
+            <div class="stat-label">Входящих</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">💬</div>
+            <div class="stat-value" id="statDialogues">0</div>
+            <div class="stat-label">Диалогов</div>
+          </div>
+        </div>
+
+        <!-- Autoresponder Quick Toggle Card -->
+        <div class="card glass-card">
+          <div class="card-header-flex">
+            <div>
+              <h3 class="card-title">🤖 Smart Автоответчик</h3>
+              <p class="card-subtitle">Автоматические ответы в ЛС чатах</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="quickToggleAR">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="ar-status-pill" id="arStatusPill">
+            <span class="pill-dot off"></span> Режим: Простой текст (Выключен)
+          </div>
+        </div>
+
+        <!-- Interactive Live Sandbox Simulator -->
+        <div class="card live-sandbox-card">
+          <div class="card-header-flex">
+            <div>
+              <h3 class="card-title">⚡ Интерактивный Telegram Чат-Симулятор</h3>
+              <p class="card-subtitle">Проверьте работу всех 35+ команд в реальном времени</p>
+            </div>
+            <span class="live-badge">LIVE SIMULATOR</span>
+          </div>
+
+          <div class="chat-mockup">
+            <div class="chat-header">
+              <div class="chat-avatar">М</div>
+              <div class="chat-info">
+                <div class="chat-title">Мария (ЛС переписка)</div>
+                <div class="chat-sub">в сети</div>
+              </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+              <div class="msg incoming">
+                <div class="msg-bubble">Привет! Как работает твой новый бот? Напиши что-нибудь классное! ✨</div>
+                <div class="msg-time">18:10</div>
+              </div>
+            </div>
+
+            <div class="chat-input-row">
+              <input type="text" id="simInput" placeholder="Введите .гс, .qr, .досье, .люблю, .печать, .крипта..." value=".гс Привет! Я настроил собственного Telegram Business бота">
+              <button class="btn-send" id="btnSimSend">Отправить 🚀</button>
+            </div>
+          </div>
+
+          <div class="quick-tags">
+            <span class="tag" onclick="setSimInput('.гс Привет! Это голосовое сообщение')">🎙️ .гс</span>
+            <span class="tag" onclick="setSimInput('.qr https://t.me/evzhem_business_bot')">📱 .qr</span>
+            <span class="tag" onclick="setSimInput('.досье')">🗂 .досье</span>
+            <span class="tag" onclick="setSimInput('.чек 15000 Разработка бота')">🧾 .чек</span>
+            <span class="tag" onclick="setSimInput('.суммари 20')">🧠 .суммари</span>
+            <span class="tag" onclick="setSimInput('.исправь превет как дила я тут бота пишу')">✍️ .исправь</span>
+            <span class="tag" onclick="setSimInput('.стиль деловой мне нужен отчет сейчас')">💼 .стиль деловой</span>
+            <span class="tag" onclick="setSimInput('.перевод en Привет, как дела?')">🌐 .перевод</span>
+            <span class="tag" onclick="setSimInput('.люблю')">💖 .люблю</span>
+            <span class="tag" onclick="setSimInput('.печать Привет, мир!')">⌨️ .печать</span>
+            <span class="tag" onclick="setSimInput('.сердце')">🫀 .сердце</span>
+            <span class="tag" onclick="setSimInput('.корона')">👑 .корона</span>
+            <span class="tag" onclick="setSimInput('.дождь')">🌦️ .дождь</span>
+            <span class="tag" onclick="setSimInput('.крипта')">💎 .крипта</span>
+            <span class="tag" onclick="setSimInput('.погода Москва')">⛅ .погода</span>
+            <span class="tag" onclick="setSimInput('.пароль 16')">🔐 .пароль</span>
+            <span class="tag" onclick="setSimInput('.наша стата')">📊 .наша стата</span>
+          </div>
+        </div>
+
+        <!-- Connection Helper Banner -->
+        <div class="card banner-card">
+          <div class="banner-content">
+            <h4>💡 Как подключить к вашему Telegram</h4>
+            <p>1. Откройте <i>Настройки Telegram ➔ Telegram Business ➔ Чат-боты</i></p>
+            <p>2. Найдите <b>@evzhem_business_bot</b> и выдайте все 5 разрешений</p>
+          </div>
+          <button class="btn-secondary" onclick="switchTab('catalog')">Все 35+ команд ➔</button>
+        </div>
+      </section>
+
+      <!-- 2. TAB: DEDICATED CATALOG OF ALL 35+ FUNCTIONS -->
+      <section id="tab-catalog" class="tab-pane">
+        <div class="section-header">
+          <h2>📚 База Знаний и Каталог Всех Функций</h2>
+          <p>Полный справочник всех 35+ команд, доступных в ваших личных чатах</p>
+        </div>
+
+        <!-- Search input -->
+        <div class="form-group" style="margin-bottom: 16px;">
+          <input type="text" id="catalogSearch" placeholder="🔍 Быстрый поиск функции (например: голос, крипта, qr, мут, чек)...">
+        </div>
+
+        <!-- Category sections -->
+        <div id="catalogList" class="catalog-list">
+          <!-- Populated by JS with rich interactive cards -->
+        </div>
+      </section>
+
+      <!-- 3. TAB: ANIMATIONS STUDIO -->
+      <section id="tab-animations" class="tab-pane">
+        <div class="section-header-flex">
+          <div>
+            <h2>💫 Студия Анимаций и Смайлов</h2>
+            <p>Покадровые живые реакции, превращающиеся из команд в ЛС</p>
+          </div>
+          <button class="btn-primary" id="btnOpenCreateModal">+ Создать свою</button>
+        </div>
+
+        <!-- Filter Categories -->
+        <div class="filter-bar">
+          <button class="filter-chip active" data-filter="all">Все</button>
+          <button class="filter-chip" data-filter="romance">❤️ Романтика</button>
+          <button class="filter-chip" data-filter="wishes">✨ Пожелания</button>
+          <button class="filter-chip" data-filter="emotions">😭 Эмоции</button>
+          <button class="filter-chip" data-filter="tools">🛠️ Утилиты</button>
+          <button class="filter-chip" data-filter="18+">🔞 18+</button>
+          <button class="filter-chip" data-filter="custom">🎨 Мои кастомные</button>
+        </div>
+
+        <!-- Grid of Animations -->
+        <div class="animations-grid" id="animationsGrid">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- 4. TAB: CRM & DOSSIER -->
+      <section id="tab-crm" class="tab-pane">
+        <div class="section-header">
+          <h2>💼 Личный CRM и Досье Контактов</h2>
+          <p>Управление карточками клиентов, заметками и тегами прямо из личных чатов</p>
+        </div>
+
+        <div class="card">
+          <h3>⚡ Быстрые команды CRM в переписке:</h3>
+          <ul class="perks-list" style="margin-top: 10px;">
+            <li>🗂 <code>.досье</code> — показать всю информацию о собеседнике</li>
+            <li>🏷 <code>.тег VIP</code> или <code>.тег Клиент</code> — присвоить метку человеку</li>
+            <li>📝 <code>.заметка Любит кофе без сахара</code> — сохранить заметку</li>
+            <li>🧾 <code>.чек 15000 Разработка сайта</code> — сгенерировать чек об оплате</li>
+            <li>📱 <code>.qr https://site.ru</code> — отправить картинку QR-кода</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>📝 Сохраненные заметки о контактах</h3>
+          <div id="crmNotesList" class="mutes-list">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. TAB: AUTORESPONDER -->
+      <section id="tab-autoresponder" class="tab-pane">
+        <div class="section-header">
+          <h2>🤖 Настройка Умного Автоответчика</h2>
+          <p>Отвечайте собеседникам, когда вы заняты, спите или отдыхаете</p>
+        </div>
+
+        <div class="card">
+          <div class="form-group-toggle">
+            <div>
+              <strong>Включить автоответчик</strong>
+              <div class="subtext">Будет автоматически отвечать на входящие сообщения</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="arActive">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label>Режим работы</label>
+            <div class="radio-cards-grid">
+              <label class="radio-card">
+                <input type="radio" name="arMode" value="simple" checked>
+                <div class="radio-body">
+                  <span class="mode-icon">📝</span>
+                  <span class="mode-title">Простой текст</span>
+                  <span class="mode-desc">Один шаблон для всех входящих</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="arMode" value="schedule">
+                <div class="radio-body">
+                  <span class="mode-icon">🌙</span>
+                  <span class="mode-title">Ночной режим</span>
+                  <span class="mode-desc">Работает по часам расписания</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="arMode" value="keywords">
+                <div class="radio-body">
+                  <span class="mode-icon">🎯</span>
+                  <span class="mode-title">Ключевые слова</span>
+                  <span class="mode-desc">Ответ по совпадению фраз</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="arMode" value="ai">
+                <div class="radio-body">
+                  <span class="mode-icon">🧠</span>
+                  <span class="mode-title">Smart AI (GPT)</span>
+                  <span class="mode-desc">Умные ответы нейросетью</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group" id="groupTextTemplate">
+            <label>Текст автоответа</label>
+            <textarea id="arTextTemplate" rows="3" placeholder="Привет! Сейчас не у телефона, скоро отвечу."></textarea>
+          </div>
+
+          <div class="form-group" id="groupAiPrompt" style="display:none;">
+            <label>Инструкция для AI (Промпт)</label>
+            <textarea id="arAiPrompt" rows="3" placeholder="Ты ассистент владельца аккаунта. Отвечай вежливо и кратко..."></textarea>
+          </div>
+
+          <div class="form-row" id="groupSchedule" style="display:none;">
+            <div class="form-group half">
+              <label>Начало работы</label>
+              <input type="time" id="arTimeStart" value="23:00">
+            </div>
+            <div class="form-group half">
+              <label>Конец работы</label>
+              <input type="time" id="arTimeEnd" value="08:00">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Кулдаун ответа (не отвечать чаще 1 раза в указанное время одному человеку): <b id="cooldownLabel">60 мин</b></label>
+            <input type="range" id="arCooldown" min="5" max="240" step="5" value="60">
+          </div>
+
+          <button class="btn-primary w-100" id="btnSaveAutoresponder">💾 Сохранить настройки автоответчика</button>
+        </div>
+      </section>
+
+      <!-- 6. TAB: MODERATION -->
+      <section id="tab-moderation" class="tab-pane">
+        <div class="section-header">
+          <h2>🔇 Управление Чатами и Мут</h2>
+          <p>Собеседники из списка мута не смогут вам надоедать — их сообщения удаляются мгновенно</p>
+        </div>
+
+        <div class="card">
+          <h3>Быстрый мут пользователя</h3>
+          <div class="form-row">
+            <input type="number" id="muteTargetId" placeholder="Telegram ID собеседника">
+            <input type="text" id="muteTargetName" placeholder="Имя / Ник">
+            <button class="btn-danger" id="btnAddMute">Замутить 🔇</button>
+          </div>
+          <div class="subtext">💡 Либо просто отправьте <code>.мут</code> или <code>.мут 15м</code> прямо в диалоге с человеком.</div>
+        </div>
+
+        <div class="card">
+          <h3>Список замученных контактов</h3>
+          <div id="mutesList" class="mutes-list">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. TAB: STATS -->
+      <section id="tab-stats" class="tab-pane">
+        <div class="section-header">
+          <h2>📊 Глубокая Аналитика Чатов</h2>
+          <p>Статистика сообщений, скорости ответов и активности</p>
+        </div>
+
+        <div class="stats-overview-grid">
+          <div class="stat-box primary">
+            <span class="stat-number" id="statTotAll">0</span>
+            <span class="stat-title">Всего обработано</span>
+          </div>
+          <div class="stat-box success">
+            <span class="stat-number" id="statTotOut">0</span>
+            <span class="stat-title">Отправлено вами</span>
+          </div>
+          <div class="stat-box info">
+            <span class="stat-number" id="statTotIn">0</span>
+            <span class="stat-title">Получено от собеседников</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🔥 Команда «.наша стата» в диалоге</h3>
+          <p>Напишите в любом личном чате <code>.наша стата</code>, и бот отправит наглядную карточку с соотношением сообщений, рейтингом дружбы и временем ответа!</p>
+          <div class="stats-card-preview">
+            <pre>
+📊 <b>СТАТИСТИКА ПЕРЕПИСКИ</b>
+━━━━━━━━━━━━━━━━━━
+👤 <b>Вы:</b> evzhem (65%)
+👥 <b>Собеседник:</b> Мария ❤️ (35%)
+[🟩🟩🟩🟩🟩🟩🟪🟪🟪]
+🏆 <b>Уровень связи:</b> 🔥 Неразлучные друзья (S-Rank)
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. TAB: ACHIEVEMENTS -->
+      <section id="tab-achievements" class="tab-pane">
+        <div class="section-header">
+          <h2>🏆 Система Достижений и Наград</h2>
+          <p>Открывайте уникальные ачивки за использование бота и получайте VIP бонусы</p>
+        </div>
+
+        <div class="achievements-grid" id="achievementsGrid">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- 9. TAB: PREMIUM -->
+      <section id="tab-premium" class="tab-pane">
+        <div class="premium-hero">
+          <div class="vip-crown">👑</div>
+          <h2>evzhem_business_bot VIP Премиум</h2>
+          <p>Получите полный безлимит, AI-автоответчик, 18+ анимации и кастомный конструктор</p>
+        </div>
+
+        <div class="pricing-cards">
+          <div class="price-card">
+            <div class="price-badge">Популярный</div>
+            <h3>1 Месяц</h3>
+            <div class="price-amount">150 ⭐</div>
+            <div class="price-sub">Telegram Stars</div>
+            <ul class="perks-list">
+              <li>✅ Все VIP & 18+ анимации</li>
+              <li>✅ Конструктор кастомных смайлов</li>
+              <li>✅ Приоритетная очередь FloodWait</li>
+            </ul>
+            <button class="btn-buy" onclick="buyPlan('1m')">Купить за 150 ⭐</button>
+          </div>
+
+          <div class="price-card featured">
+            <div class="price-badge hot">Выгода 15%</div>
+            <h3>3 Месяца</h3>
+            <div class="price-amount">390 ⭐</div>
+            <div class="price-sub">Telegram Stars</div>
+            <ul class="perks-list">
+              <li>✅ Все функции 1 месяца</li>
+              <li>✅ Smart AI автоответчик (GPT-4o)</li>
+              <li>✅ Безлимитный мут и спам</li>
+            </ul>
+            <button class="btn-buy featured-btn" onclick="buyPlan('3m')">Купить за 390 ⭐</button>
+          </div>
+
+          <div class="price-card">
+            <div class="price-badge">Навсегда</div>
+            <h3>VIP Lifetime</h3>
+            <div class="price-amount">990 ⭐</div>
+            <div class="price-sub">Вечный доступ</div>
+            <ul class="perks-list">
+              <li>✅ Вечный Premium навсегда</li>
+              <li>✅ Все будущие обновления</li>
+              <li>✅ Личный значок 👑 в чатах</li>
+            </ul>
+            <button class="btn-buy" onclick="buyPlan('life')">Купить за 990 ⭐</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL: Custom Animation Creator -->
+  <div class="modal-overlay" id="createAnimModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>✨ Конструктор Кастомной Анимации</h3>
+        <button class="modal-close" id="btnCloseModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Название команды (без точки)</label>
+          <input type="text" id="customCmdName" placeholder="например: салют, привет, кот">
+        </div>
+
+        <div class="form-group">
+          <label>Кадры анимации (по одному кадру на строке):</label>
+          <textarea id="customCmdFrames" rows="6" placeholder="Привет!&#10;Привет, как дела?&#10;Привет, как дела? 🐱✨"></textarea>
+          <div class="subtext">Каждая новая строка — это следующий кадр анимации.</div>
+        </div>
+
+        <div class="form-group">
+          <label>Скорость смены кадров: <b id="customIntervalLabel">0.38 сек</b></label>
+          <input type="range" id="customInterval" min="0.25" max="0.8" step="0.05" value="0.38">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="btnCancelModal">Отмена</button>
+        <button class="btn-primary" id="btnSaveCustomAnim">Сохранить команду 🚀</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

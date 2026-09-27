@@ -1,0 +1,235 @@
+2026-09-27 19:55:38 [INFO] [evzhem_bot]: ==========================================
+2026-09-27 19:55:38 [INFO] [evzhem_bot]: Initializing evzhem_business_bot system...
+2026-09-27 19:55:38 [INFO] [evzhem_bot]: ==========================================
+2026-09-27 19:55:38 [INFO] [evzhem_bot]: Starting Telegram Polling loop for @evzhem_business_bot...
+2026-09-27 19:55:38 [INFO] [aiogram.dispatcher]: Start polling
+2026-09-27 19:55:39 [INFO] [aiogram.dispatcher]: Run polling for bot @evzhem_business_bot id=8979172515 - 'evzhem | Business Automation'
+2026-09-27 19:55:39 [INFO] [aiogram.event]: Update id=896885404 is handled. Duration 499 ms by bot id=8979172515
+2026-09-27 19:55:45 [INFO] [aiogram.event]: Update id=896885406 is handled. Duration 404 ms by bot id=8979172515
+2026-09-27 19:55:47 [ERROR] [aiogram.dispatcher]: Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-09-27 19:55:47 [WARNING] [aiogram.dispatcher]: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8979172515)
+2026-09-27 19:55:50 [INFO] [aiogram.dispatcher]: Connection established (tryings = 1, bot id = 8979172515)
+2026-09-27 19:55:50 [INFO] [aiogram.event]: Update id=896885408 is not handled. Duration 151 ms by bot id=8979172515
+2026-09-27 19:55:50 [ERROR] [aiogram.event]: Cause exception while process update id=896885408 by bot id=8979172515
+AttributeError: 'Repository' object has no attribute 'get_user_notes'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/dispatcher.py", line 321, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/middlewares/error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/fsm/middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/event/telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/event/handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/dispatcher.py", line 284, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/router.py", line 172, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/router.py", line 164, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/router.py", line 200, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/router.py", line 172, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/router.py", line 164, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/router.py", line 192, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/event/telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/event/handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/home/user/telegram_business_bot/bot/handlers/pm_bot_dialogs.py", line 264, in cb_crm
+    notes = await repo.get_user_notes(call.from_user.id)
+                  ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Repository' object has no attribute 'get_user_notes'. Did you mean: 'get_user_mutes'?
+2026-09-27 19:55:53 [INFO] [aiogram.event]: Update id=896885409 is not handled. Duration 155 ms by bot id=8979172515
+2026-09-27 19:55:53 [ERROR] [aiogram.event]: Cause exception while process update id=896885409 by bot id=8979172515
+AttributeError: 'Repository' object has no attribute 'get_user_notes'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/dispatcher.py", line 321, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/middlewares/error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/fsm/middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/event/telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/event/handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/dispatcher.py", line 284, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/router.py", line 172, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/router.py", line 164, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/router.py", line 200, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/router.py", line 172, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/router.py", line 164, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/router.py", line 192, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/event/telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiogram/dispatcher/event/handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/home/user/telegram_business_bot/bot/handlers/pm_bot_dialogs.py", line 264, in cb_crm
+    notes = await repo.get_user_notes(call.from_user.id)
+                  ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Repository' object has no attribute 'get_user_notes'. Did you mean: 'get_user_mutes'?
+2026-09-27 19:55:53 [ERROR] [aiogram.dispatcher]: Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-09-27 19:55:53 [WARNING] [aiogram.dispatcher]: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8979172515)
+2026-09-27 19:55:58 [ERROR] [aiogram.dispatcher]: Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-09-27 19:55:58 [WARNING] [aiogram.dispatcher]: Sleep for 1.368381 seconds and try again... (tryings = 1, bot id = 8979172515)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/user/telegram_business_bot/bot/main.py", line 4, in <module>
+    from aiogram import Bot, Dispatcher
+ModuleNotFoundError: No module named 'aiogram'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/user/telegram_business_bot/bot/main.py", line 4, in <module>
+    from aiogram import Bot, Dispatcher
+ModuleNotFoundError: No module named 'aiogram'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/user/telegram_business_bot/bot/main.py", line 4, in <module>
+    from aiogram import Bot, Dispatcher
+ModuleNotFoundError: No module named 'aiogram'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/user/telegram_business_bot/bot/main.py", line 4, in <module>
+    from aiogram import Bot, Dispatcher
+ModuleNotFoundError: No module named 'aiogram'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/user/telegram_business_bot/bot/main.py", line 4, in <module>
+    from aiogram import Bot, Dispatcher
+ModuleNotFoundError: No module named 'aiogram'
+2026-09-27 20:05:46 [INFO] [evzhem_bot]: ==========================================
+2026-09-27 20:05:46 [INFO] [evzhem_bot]: ==========================================
+2026-09-27 20:05:46 [INFO] [evzhem_bot]: Initializing evzhem_business_bot system...
+2026-09-27 20:05:46 [INFO] [evzhem_bot]: Initializing evzhem_business_bot system...
+2026-09-27 20:05:46 [INFO] [evzhem_bot]: ==========================================
+2026-09-27 20:05:46 [INFO] [evzhem_bot]: ==========================================
+2026-09-27 20:05:46 [INFO] [evzhem_bot]: Starting Telegram Polling loop for @evzhem_business_bot...
+2026-09-27 20:05:46 [INFO] [evzhem_bot]: Starting Telegram Polling loop for @evzhem_business_bot...
+2026-09-27 20:05:46 [INFO] [aiogram.dispatcher]: Start polling
+2026-09-27 20:05:46 [INFO] [aiogram.dispatcher]: Start polling
+2026-09-27 20:05:46 [INFO] [aiogram.dispatcher]: Run polling for bot @evzhem_business_bot id=8979172515 - 'evzhem | Business Automation'
+2026-09-27 20:05:46 [INFO] [aiogram.dispatcher]: Run polling for bot @evzhem_business_bot id=8979172515 - 'evzhem | Business Automation'
+2026-09-27 20:05:47 [ERROR] [aiogram.dispatcher]: Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-09-27 20:05:47 [ERROR] [aiogram.dispatcher]: Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-09-27 20:05:47 [WARNING] [aiogram.dispatcher]: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8979172515)
+2026-09-27 20:05:47 [WARNING] [aiogram.dispatcher]: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8979172515)
+2026-09-27 20:05:47 [INFO] [aiogram.event]: Update id=896885413 is handled. Duration 510 ms by bot id=8979172515
+2026-09-27 20:05:47 [INFO] [aiogram.event]: Update id=896885413 is handled. Duration 510 ms by bot id=8979172515
+2026-09-27 20:05:47 [INFO] [aiogram.event]: Update id=896885414 is handled. Duration 536 ms by bot id=8979172515
+2026-09-27 20:05:47 [INFO] [aiogram.event]: Update id=896885414 is handled. Duration 536 ms by bot id=8979172515
+2026-09-27 20:05:47 [INFO] [aiogram.event]: Update id=896885415 is handled. Duration 557 ms by bot id=8979172515
+2026-09-27 20:05:47 [INFO] [aiogram.event]: Update id=896885415 is handled. Duration 557 ms by bot id=8979172515
+2026-09-27 20:05:47 [INFO] [aiogram.event]: Update id=896885416 is handled. Duration 699 ms by bot id=8979172515
+2026-09-27 20:05:47 [INFO] [aiogram.event]: Update id=896885416 is handled. Duration 699 ms by bot id=8979172515
+2026-09-27 20:05:52 [INFO] [aiogram.dispatcher]: Connection established (tryings = 1, bot id = 8979172515)
+2026-09-27 20:05:52 [INFO] [aiogram.dispatcher]: Connection established (tryings = 1, bot id = 8979172515)
+2026-09-27 20:05:52 [ERROR] [aiogram.dispatcher]: Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-09-27 20:05:52 [ERROR] [aiogram.dispatcher]: Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-09-27 20:05:52 [WARNING] [aiogram.dispatcher]: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8979172515)
+2026-09-27 20:05:52 [WARNING] [aiogram.dispatcher]: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8979172515)
+2026-09-27 20:05:52 [INFO] [aiogram.event]: Update id=896885417 is handled. Duration 369 ms by bot id=8979172515
+2026-09-27 20:05:52 [INFO] [aiogram.event]: Update id=896885417 is handled. Duration 369 ms by bot id=8979172515
+2026-09-27 20:05:54 [INFO] [aiogram.dispatcher]: Connection established (tryings = 1, bot id = 8979172515)
+2026-09-27 20:05:54 [INFO] [aiogram.dispatcher]: Connection established (tryings = 1, bot id = 8979172515)
+2026-09-27 20:05:55 [INFO] [aiogram.event]: Update id=896885418 is handled. Duration 529 ms by bot id=8979172515
+2026-09-27 20:05:55 [INFO] [aiogram.event]: Update id=896885418 is handled. Duration 529 ms by bot id=8979172515
+2026-09-27 20:05:58 [ERROR] [aiogram.dispatcher]: Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-09-27 20:05:58 [ERROR] [aiogram.dispatcher]: Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-09-27 20:05:58 [WARNING] [aiogram.dispatcher]: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8979172515)
+2026-09-27 20:05:58 [WARNING] [aiogram.dispatcher]: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8979172515)
+2026-09-27 20:06:04 [ERROR] [aiogram.dispatcher]: Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-09-27 20:06:04 [ERROR] [aiogram.dispatcher]: Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-09-27 20:06:04 [WARNING] [aiogram.dispatcher]: Sleep for 1.162043 seconds and try again... (tryings = 1, bot id = 8979172515)
+2026-09-27 20:06:04 [WARNING] [aiogram.dispatcher]: Sleep for 1.162043 seconds and try again... (tryings = 1, bot id = 8979172515)
+2026-09-27 20:06:09 [INFO] [evzhem_bot]: ==========================================
+2026-09-27 20:06:09 [INFO] [evzhem_bot]: ==========================================
+2026-09-27 20:06:09 [INFO] [evzhem_bot]: Initializing evzhem_business_bot system...
+2026-09-27 20:06:09 [INFO] [evzhem_bot]: Initializing evzhem_business_bot system...
+2026-09-27 20:06:09 [INFO] [evzhem_bot]: ==========================================
+2026-09-27 20:06:09 [INFO] [evzhem_bot]: ==========================================
+2026-09-27 20:06:09 [INFO] [evzhem_bot]: Starting Telegram Polling loop for @evzhem_business_bot...
+2026-09-27 20:06:09 [INFO] [evzhem_bot]: Starting Telegram Polling loop for @evzhem_business_bot...
+2026-09-27 20:06:09 [INFO] [aiogram.dispatcher]: Start polling
+2026-09-27 20:06:09 [INFO] [aiogram.dispatcher]: Start polling
+2026-09-27 20:06:09 [INFO] [aiogram.dispatcher]: Run polling for bot @evzhem_business_bot id=8979172515 - 'evzhem | Business Automation'
+2026-09-27 20:06:09 [INFO] [aiogram.dispatcher]: Run polling for bot @evzhem_business_bot id=8979172515 - 'evzhem | Business Automation'
+2026-09-27 20:06:13 [INFO] [aiogram.event]: Update id=896885419 is handled. Duration 621 ms by bot id=8979172515
+2026-09-27 20:06:13 [INFO] [aiogram.event]: Update id=896885419 is handled. Duration 621 ms by bot id=8979172515
+2026-09-27 20:06:21 [INFO] [aiogram.event]: Update id=896885420 is handled. Duration 393 ms by bot id=8979172515
+2026-09-27 20:06:21 [INFO] [aiogram.event]: Update id=896885420 is handled. Duration 393 ms by bot id=8979172515
